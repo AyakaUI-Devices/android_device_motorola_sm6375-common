@@ -146,6 +146,7 @@ vendor.display.idle_time=0
 vendor.display.secure_preview_buffer_format=420_sp
 vendor.display.use_smooth_motion=1
 vendor.display.vds_allow_hwc=1
+ro.surface_flinger.blur_disabled_by_default=true
 
 # DPM
 persist.vendor.dpm.feature=1
