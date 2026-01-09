@@ -66,32 +66,30 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@6.0-impl \
-    android.hardware.audio.effect@6.0-impl \
+    android.hardware.audio@6.0-impl:64 \
+    android.hardware.audio.effect@6.0-impl:64 \
     android.hardware.audio.service \
-    android.hardware.bluetooth.audio-impl \
-    android.hardware.soundtrigger@2.3-impl \
+    android.hardware.bluetooth.audio-impl:64 \
+    android.hardware.soundtrigger@2.3-impl:64 \
     audioadsprpcd \
-    audio.bluetooth.default \
-    audio.primary.holi \
-    audio.r_submix.default \
-    audio.usb.default \
-    liba2dpoffload \
-    libaudiopreprocessing \
-    libbundlewrapper \
-    libdownmix \
-    libdynproc \
-    libeffectproxy \
-    libldnhncr \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
-    libreverbwrapper \
-    libvisualizer \
-    libhdmiedid \
-    libhfp \
-    libsndmonitor \
-    libspkrprot \
-    sound_trigger.primary.holi
+    audio.bluetooth.default:64 \
+    audio.primary.holi:64 \
+    audio.r_submix.default:64 \
+    audio.usb.default:64 \
+    liba2dpoffload:64 \
+    libbatterylistener:64 \
+    libcirrusspkrprot:64 \
+    libcomprcapture:64 \
+    libexthwplugin:64 \
+    libhdmiedid:64 \
+    libhfp:64 \
+    libqcompostprocbundle:64 \
+    libqcomvisualizer:64 \
+    libqcomvoiceprocessing:64 \
+    libsndmonitor:64 \
+    libspkrprot:64 \
+    libvolumelistener:64 \
+    sound_trigger.primary.holi:64
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
