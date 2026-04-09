@@ -50,6 +50,12 @@ TARGET_KERNEL_NO_GCC := true
 TARGET_KERNEL_SOURCE := kernel/motorola/sm6375
 TARGET_KERNEL_CONFIG := vendor/holi-qgki_defconfig vendor/ext_config/lineage_moto-holi.config
 
+# KernelSU Support
+WITH_KSU ?= false
+ifeq ($(WITH_KSU), true)
+    TARGET_KERNEL_CONFIG += ksu.config
+endif
+
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := holi
