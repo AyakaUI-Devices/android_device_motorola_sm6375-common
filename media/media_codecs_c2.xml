@@ -78,7 +78,7 @@
 -->
 
 <MediaCodecs>
-    <Include href="media_codecs_dolby_audio.xml" />
+    <Include href="media_codecs_dolby_audio.xml" />	
     <Settings>
         <Setting name="max-video-encoder-input-buffers" value="11" />
     </Settings>
@@ -89,11 +89,10 @@
         <!-- C2 decoders -->
         <MediaCodec name="c2.qti.avc.decoder" type="video/avc">
             <Alias name="OMX.qcom.video.decoder.avc"/>
-            <Limit name="size" min="96x96" max="4096x4096" />
+            <Limit name="size" min="96x96" max="1920x1088" />
             <Limit name="alignment" value="2x2" />
             <Limit name="block-size" value="16x16" />
-	    <Limit name="block-count" range="1-36864" />
-	    <Limit name="blocks-per-second" range="1-2073600" />
+            <Limit name="blocks-per-second" range="36-489600" />
             <Limit name="bitrate" range="1-60000000" />
             <Limit name="frame-rate" range="1-120" />
             <Limit name="concurrent-instances" max="16" />
@@ -105,11 +104,10 @@
         </MediaCodec>
         <MediaCodec name="c2.qti.avc.decoder.low_latency" type="video/avc">
             <Alias name="OMX.qcom.video.decoder.avc.low_latency"/>
-            <Limit name="size" min="96x96" max="4096x4096" />
+            <Limit name="size" min="96x96" max="1920x1088" />
             <Limit name="alignment" value="2x2" />
             <Limit name="block-size" value="16x16" />
-	    <Limit name="block-count" range="1-36864" />
-	    <Limit name="blocks-per-second" range="1-2073600" />
+            <Limit name="blocks-per-second" range="36-489600" />
             <Limit name="bitrate" range="1-60000000" />
             <Limit name="frame-rate" range="1-120" />
             <Limit name="concurrent-instances" max="16" />
