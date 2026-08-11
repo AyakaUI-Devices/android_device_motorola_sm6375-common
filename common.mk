@@ -12,6 +12,10 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# Include protobuf vendorcompat prebuilts in Soong's bp scan,
+# required by libsnsapi (vendor/motorola/sm6375-common)
+PRODUCT_SOURCE_ROOT_DIRS += prebuilts/misc/protobuf_vendorcompat
+
 # Enable project quotas and casefolding for emulated storage without sdcardfs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
