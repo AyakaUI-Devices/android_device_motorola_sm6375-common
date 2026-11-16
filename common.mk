@@ -293,7 +293,8 @@ PRODUCT_PACKAGES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors-service.multihal
+    android.hardware.sensors-service.multihal \
+    libbase_shim
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
