@@ -146,6 +146,7 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
+    init.mmi.hw.sh \
     init.qti.irq_affinity.sh
 
 PRODUCT_COPY_FILES += \

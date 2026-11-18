@@ -428,13 +428,13 @@ service vendor.mmi-display-sh /vendor/bin/init.mmi.display.sh
     user root
     oneshot
 
-service vendor.oem-hw-sh /vendor/bin/init.oem.hw.sh
+service vendor.oem-hw-sh /vendor/bin/init.mmi.hw.sh
     class core
     user root
     oneshot
     disabled
 
-service vendor.oem-super-image-detector-sh /vendor/bin/init.oem.hw.sh -M
+service vendor.oem-super-image-detector-sh /vendor/bin/init.mmi.hw.sh -M
     class core
     user root
     oneshot
@@ -446,19 +446,19 @@ service vendor.hal-fps-sh /vendor/bin/init.oem.fingerprint2.sh
     group system
     oneshot
 
-service vendor.touch-dead-sh /vendor/bin/init.oem.hw.sh -f
+service vendor.touch-dead-sh /vendor/bin/init.mmi.hw.sh -f
     class main
     user root
     oneshot
     disabled
 
-service vendor.touch-ready-sh /vendor/bin/init.oem.hw.sh -r
+service vendor.touch-ready-sh /vendor/bin/init.mmi.hw.sh -r
     class main
     user root
     oneshot
     disabled
 
-service vendor.oem-hw-config-sh /vendor/bin/init.oem.hw.sh -p
+service vendor.oem-hw-config-sh /vendor/bin/init.mmi.hw.sh -p
     class main
     user root
     oneshot
