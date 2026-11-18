@@ -718,11 +718,19 @@ add_device_params device $boot_device
 # the version utag first and only populate the tags when it can be written.
 utags_writable=true
 if [ "$xml_version" != "$version_fs" ]; then
-	[ ! -d $hw_mp/$ver_utag ] && echo "$ver_utag" > $hw_mp/all/new 2>/dev/null
-	if ! echo "$xml_version" > $hw_mp/$ver_utag/ascii 2>/dev/null ||
-	   [ "$(cat $hw_mp/$ver_utag/ascii 2>/dev/null)" != "$xml_version" ]; then
+	[ ! -d $hw_mp/$ver_utag ] && echo "$ver_utag" 2>/dev/null > $hw_mp/all/new
+	if echo "$xml_version" 2>/dev/null > $hw_mp/$ver_utag/ascii &&
+	   [ "$(cat $hw_mp/$ver_utag/ascii 2>/dev/null)" == "$xml_version" ]; then
+		# Writable: put the old version back. The new one is stored
+		# below, once every section is populated, so an update cut short
+		# is still retried at the next boot.
+		echo "$version_fs" > $hw_mp/$ver_utag/ascii
+	else
 		notice "hw utags are read-only; keeping version '$version_fs'"
 		utags_writable=false
+		# Same outcome as the failed update the stock script runs into:
+		# ro.vendor.hw.* is also set from the tags as they are.
+		utag_update_fail="true"
 	fi
 fi
 
