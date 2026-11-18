@@ -31,7 +31,6 @@
 
 # Stock USB setup uses the Qualcomm init-shell policy.
 /vendor/bin/init\.mmi\.usb\.sh    u:object_r:vendor_qti_init_shell_exec:s0
-/vendor/bin/init\.qti\.irq_affinity\.sh    u:object_r:vendor_qti_init_shell_exec:s0
 /vendor/bin/init\.mmi\.hw\.sh    u:object_r:vendor_init_hw_exec:s0
 /vendor/bin/init\.mmi\.block_perm\.sh    u:object_r:vendor_init_block_perm_exec:s0
 /dev/block/platform/soc/4804000\.ufshc/by-name/(hob|dhob|clogo|cid|logs)    u:object_r:vendor_mmi_config_block_device:s0

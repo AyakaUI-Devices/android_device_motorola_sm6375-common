@@ -42,12 +42,6 @@ install_symlink {
 }
 
 sh_binary {
-    name: "init.qti.irq_affinity.sh",
-    src: "rootdir/bin/init.qti.irq_affinity.sh",
-    vendor: true,
-}
-
-sh_binary {
     name: "init.mmi.hw.sh",
     src: "rootdir/bin/init.mmi.hw.sh",
     vendor: true,
