@@ -23,4 +23,3 @@ ro.audio.ihaladaptervendorextension_enabled=true
 ro.bluetooth.leaudio_offload.supported=true
 vendor.audio.parser.ip.buffer.size=262144
 vendor.audio.snd_card.open.retries=50
-
