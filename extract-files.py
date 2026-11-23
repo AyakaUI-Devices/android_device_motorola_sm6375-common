@@ -99,6 +99,11 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/etc/seccomp_policy/qcrilnr@2.0.policy': blob_fixup()
         .add_line_if_missing('getppid: 1')
         .add_line_if_missing('uname: 1'),
+    'vendor/etc/seccomp_policy/imsrtp.policy': blob_fixup()
+        .add_line_if_missing('getppid: 1')
+        .add_line_if_missing('getdents64: 1')
+        .add_line_if_missing('uname: 1')
+        .add_line_if_missing('sysinfo: 1'),
     # debuggerd's in-process dump needs these; without them any crash or
     # backtrace request (bugreport) kills the Codec2 HAL with SIGSYS.
     'vendor/etc/seccomp_policy/codec2.vendor.ext-arm64.policy': blob_fixup()
