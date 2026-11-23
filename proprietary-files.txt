@@ -309,7 +309,7 @@ system/etc/permissions/moto-telephony.xml:system_ext/etc/permissions/moto-teleph
 system/framework/moto-telephony.jar:system_ext/framework/moto-telephony.jar
 
 # RIL - IMS
-system_ext/priv-app/ims/ims.apk|b4b60bed0c16b543206d42debcb8d808e2b12581
+system_ext/priv-app/ims/ims.apk|b4b60bed0c16b543206d42debcb8d808e2b12581|276d2a68b88c54546be154b545c4ac3122c3e570
 system_ext/lib64/libimsmedia_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/libimsmedia_jni.so|2be02c822dfe45d144b629448b2aa18a0088f557
 system_ext/app/ImsRcsService/ImsRcsService.apk
 system_ext/etc/permissions/vendor.qti.ims.rcsservice.xml

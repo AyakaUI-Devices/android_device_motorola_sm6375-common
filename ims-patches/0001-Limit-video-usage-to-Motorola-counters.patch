@@ -1,0 +1,22 @@
+diff --git a/smali/com/qualcomm/ims/vt/ImsMedia.smali b/smali/com/qualcomm/ims/vt/ImsMedia.smali
+--- a/smali/com/qualcomm/ims/vt/ImsMedia.smali
++++ b/smali/com/qualcomm/ims/vt/ImsMedia.smali
+@@ -2913,6 +2913,18 @@
+     if-eqz v3, :cond_0
+
+     .line 904
++    # The Motorola extension consumes four LTE/WLAN Tx/Rx counters.
++    array-length v3, v2
++
++    const/4 v4, 0x4
++
++    if-le v3, v4, :usage_ready
++
++    invoke-static {v2, v4}, Ljava/util/Arrays;->copyOf([JI)[J
++
++    move-result-object v2
++
++    :usage_ready
+     iget-object v3, p0, Lcom/qualcomm/ims/vt/ImsMedia;->mMediaListener:Lcom/qualcomm/ims/vt/ImsMedia$IMediaListener;
+
+     new-instance v4, Lorg/codeaurora/ims/QtiVideoCallDataUsage;

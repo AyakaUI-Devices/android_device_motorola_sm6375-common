@@ -38,4 +38,5 @@ remote_provisioning.hostname=remoteprovisioning.googleapis.com
 ril.subscription.types=RUIM
 ro.audio.monitorRotation=true
 ro.audio.monitorWindowRotation=true
+ro.qcom.ims.use_moto_vt_ext=true
 ro.telephony.default_network=26,26

@@ -92,6 +92,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libaudiobase.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
         .add_needed('libinput_shim.so'),
+    'system_ext/priv-app/ims/ims.apk': blob_fixup()
+        .apktool_patch('ims-patches'),
     # HIDL initializes qpIonDeviceOpen with ION mode. Select the library's
     # DMA-BUF path on the first open instead (mov w0, #1).
     'system_ext/lib64/lib-imsvt.so': blob_fixup()
