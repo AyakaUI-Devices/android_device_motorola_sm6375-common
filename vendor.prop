@@ -44,6 +44,7 @@ persist.vendor.dpmhalservice.enable=1
 persist.vendor.ims.disableDebugDataPathLogs=1
 persist.vendor.ims.disableDebugLogs=1
 persist.vendor.ims.disableIMSLogs=1
+persist.vendor.ims.dmabuf=1
 persist.vendor.ims.vt.enableadb=1
 persist.vendor.qcom.bluetooth.aac_vbr_ctl.enabled=false
 persist.vendor.qcom.bluetooth.enable.splita2dp=true

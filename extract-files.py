@@ -92,6 +92,16 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libaudiobase.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
         .add_needed('libinput_shim.so'),
+    # HIDL initializes qpIonDeviceOpen with ION mode. Select the library's
+    # DMA-BUF path on the first open instead (mov w0, #1).
+    'system_ext/lib64/lib-imsvt.so': blob_fixup()
+        .sig_replace(
+            '09 61 46 39 49 03 00 35 00 e4 00 6f 1f 20 03 d5 89 f9 05 10 1f 20 03 d5 0a ff 05 10',
+            '09 61 46 39 49 03 00 35 00 e4 00 6f 20 00 80 52 89 f9 05 10 1f 20 03 d5 0a ff 05 10'),
+    # vtIonDeviceOpen uses ion_open as a gate even for DMA-BUF playback.
+    # Use the shim for that gate and retain libion for the legacy-mode query.
+    'vendor/lib64/lib-imsvtcore.so': blob_fixup()
+        .add_needed('libion_qsecom_shim.so'),
     ('vendor/lib64/libdpps.so', 'vendor/lib64/libsnapdragoncolor-manager.so'): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
     ('vendor/bin/qcc-vendor', 'vendor/bin/xtra-daemon', 'vendor/lib64/libqcc_sdk.so'): blob_fixup()
