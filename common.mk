@@ -61,8 +61,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries-qti.txt:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/public.libraries-qti.txt
 
 # Audio
-$(call inherit-product, vendor/motorola/dolby/dolby-vendor.mk)
-
 $(call soong_config_set,android_hardware_audio,run_64bit,true)
 
 # Shared legacy APR/Q6 primary HAL for the stock ADSP.
