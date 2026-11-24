@@ -27,10 +27,42 @@
 
 on init
     mount configfs none /config
-    mkdir /config/usb_gadget/g1 0775
-    mkdir /config/usb_gadget/g2 0770
-    mkdir /config/usb_gadget/g1/strings/0x409 0770
-    mkdir /config/usb_gadget/g2/strings/0x409 0770
+    chown system usb /config/usb_gadget/
+    mkdir /config/usb_gadget/g1 0775 system usb
+    chown system usb /config/usb_gadget/g1/UDC
+    chown system usb /config/usb_gadget/g1/bDeviceClass
+    chown system usb /config/usb_gadget/g1/bDeviceProtocol
+    chown system usb /config/usb_gadget/g1/bDeviceSubClass
+    chown system usb /config/usb_gadget/g1/bMaxPacketSize0
+    chown system usb /config/usb_gadget/g1/bcdDevice
+    chown system usb /config/usb_gadget/g1/bcdUSB
+    chown system usb /config/usb_gadget/g1/configs
+    chown system usb /config/usb_gadget/g1/functions
+    chown system usb /config/usb_gadget/g1/idProduct
+    chown system usb /config/usb_gadget/g1/idVendor
+    chown system usb /config/usb_gadget/g1/max_speed
+    chown system usb /config/usb_gadget/g1/os_desc
+    chown system usb /config/usb_gadget/g1/strings
+    mkdir /config/usb_gadget/g2 0770 system usb
+    chown system usb /config/usb_gadget/g2/UDC
+    chown system usb /config/usb_gadget/g2/bDeviceClass
+    chown system usb /config/usb_gadget/g2/bDeviceProtocol
+    chown system usb /config/usb_gadget/g2/bDeviceSubClass
+    chown system usb /config/usb_gadget/g2/bMaxPacketSize0
+    chown system usb /config/usb_gadget/g2/bcdDevice
+    chown system usb /config/usb_gadget/g2/bcdUSB
+    chown system usb /config/usb_gadget/g2/configs
+    chown system usb /config/usb_gadget/g2/functions
+    chown system usb /config/usb_gadget/g2/idProduct
+    chown system usb /config/usb_gadget/g2/idVendor
+    chown system usb /config/usb_gadget/g2/max_speed
+    chown system usb /config/usb_gadget/g2/os_desc
+    chown system usb /config/usb_gadget/g2/strings
+    mkdir /config/usb_gadget/g1/strings/0x409 0770 system usb
+    chown system usb /config/usb_gadget/g1/strings/0x409/manufacturer
+    chown system usb /config/usb_gadget/g1/strings/0x409/product
+    chown system usb /config/usb_gadget/g1/strings/0x409/serialnumber
+    mkdir /config/usb_gadget/g2/strings/0x409 0770 system usb
     write /config/usb_gadget/g1/bcdUSB 0x0200
     write /config/usb_gadget/g2/bcdUSB 0x0200
     write /config/usb_gadget/g1/os_desc/use 1
@@ -165,14 +197,23 @@ on init
     write /config/usb_gadget/g1/functions/uvc.0/streaming_txfifo_hint 9
     write /config/usb_gadget/g1/functions/uvc.0/function_name "Moto Webcam
 "
-    mkdir /config/usb_gadget/g1/configs/b.1 0770
-    mkdir /config/usb_gadget/g2/configs/b.1 0770
-    mkdir /config/usb_gadget/g1/configs/b.1/strings/0x409 0770
-    mkdir /config/usb_gadget/g2/configs/b.1/strings/0x409 0770
+    mkdir /config/usb_gadget/g1/configs/b.1 0770 system usb
+    chown system usb /config/usb_gadget/g1/configs/b.1/MaxPower
+    chown system usb /config/usb_gadget/g1/configs/b.1/bmAttributes
+    chown system usb /config/usb_gadget/g1/configs/b.1/strings
+    mkdir /config/usb_gadget/g2/configs/b.1 0770 system usb
+    mkdir /config/usb_gadget/g1/configs/b.1/strings/0x409 0770 system usb
+    chown system usb /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration
+    mkdir /config/usb_gadget/g2/configs/b.1/strings/0x409 0770 system usb
+    chown system usb /config/usb_gadget/g2/configs/b.1/strings/0x409/configuration
+    chown system usb /config/usb_gadget/g1/os_desc/b_vendor_code
+    chown system usb /config/usb_gadget/g1/os_desc/qw_sign
+    chown system usb /config/usb_gadget/g1/os_desc/use
     write /config/usb_gadget/g1/configs/b.1/MaxPower 900
     write /config/usb_gadget/g1/os_desc/b_vendor_code 0x1
     write /config/usb_gadget/g1/os_desc/qw_sign "MSFT100"
     symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
+    chown system usb /config/usb_gadget/g1/os_desc/b.1
     mkdir /dev/usb-ffs 0775 shell system
     mkdir /dev/usb-ffs/adb 0770 shell shell
     mount functionfs adb /dev/usb-ffs/adb uid=2000,gid=2000,rmode=0770,fmode=0660
@@ -373,6 +414,9 @@ on property:vendor.usb.charging.func.name=fastboot
 
 on property:vendor.sys.usb.ffs.ready=1
     setprop sys.usb.ffs.ready 1
+
+on property:vendor.sys.usb.adb.disabled=*
+    setprop sys.usb.adb.disabled ${vendor.sys.usb.adb.disabled}
 
 on property:sys.usb.config=adb && property:sys.usb.configfs=1 && property:vendor.usb.charging.func.name=fastboot
     write /config/usb_gadget/g1/idVendor 0x22b8
